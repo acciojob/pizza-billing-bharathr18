@@ -1,7 +1,6 @@
 package com.driver;
 
 public class Pizza {
-
     private int price;
     private Boolean isVeg;
     private String bill;
@@ -14,12 +13,6 @@ public class Pizza {
     boolean isTakeAwayAdded;
     boolean isBillGenerated;
 
-  /*  public Node(int data)
-    {
-        this.data = data;
-    }
-
-   */
 
     public Pizza(Boolean isVeg){
         this.isVeg = isVeg;
@@ -38,7 +31,11 @@ public class Pizza {
             this.toppingsPrice = 120;
         }
 
+        this.isCheeseAdded = false;
+        this.isToppingsAdded = false;
         this.isTakeAwayAdded = false;
+
+        this.bill = "Base Price Of The Pizza: " + this.price + "\n";
     }
 
     public int getPrice(){
@@ -47,14 +44,29 @@ public class Pizza {
 
     public void addExtraCheese(){
         // your code goes here
+        if(isCheeseAdded == false)
+        {
+            this.price = this.price + this.cheesePrice;
+            this.isCheeseAdded = true;
+        }
     }
 
     public void addExtraToppings(){
         // your code goes here
+        if(isToppingsAdded == false)
+        {
+            this.price = this.price + this.toppingsPrice;
+            this.isToppingsAdded = true;
+        }
     }
 
     public void addTakeaway(){
         // your code goes here
+        if(isTakeAwayAdded == false)
+        {
+            this.price = this.price + this.takeAwayPrice;
+            this.isTakeAwayAdded = true;
+        }
     }
 
     public String getBill(){
